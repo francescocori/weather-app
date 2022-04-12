@@ -9,6 +9,10 @@ function App() {
   const [city, setCity] = useState("");
   const [data, setData] = useState();
 
+  // see how to show daily forecast
+  // https://www.youtube.com/watch?v=yna914koyQE
+
+  //get data from API
   function getWeather() {
     axios
       .get(
@@ -20,43 +24,72 @@ function App() {
       })
       .catch((err) => console.log(err));
   }
-  const handlClick = () => {
+
+  //handle Click / Submit
+  const handlClick = (e) => {
+    e.preventDefault();
     getWeather();
     setCity("");
   };
-  // const getWeather = (e) => {
-  //   fetch(
-  //     `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${apiKey}`
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setData(data);
-  //       console.log(data);
-  //       console.log(data.main.temp);
-  //     });
-  // };
+  // create date of today
+  const dateBuilder = (d) => {
+    let months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
 
-  //axios get data from Api
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+
+    return `${day} ${date} ${month} ${year}`;
+  };
 
   return (
     <div className="App">
-      hello world
-      <form>
+      <form onSubmit={handlClick}>
         <input
           type="text"
           name="cit"
           onChange={(e) => setCity(e.target.value)}
           value={city}
+          ///not working
         ></input>
+        <button type="submit">search..</button>
       </form>
-      <button type="submit" onClick={handlClick}>
-        search..
-      </button>
-      {data && <h1>{data.main.temp}</h1>}
-      {data && <h1>{data.weather[0].main}</h1>}
-      <img
-        src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-      />
+      <br />
+      <h1>{dateBuilder(new Date())}</h1>
+      {/* {today} */}
+
+      {data && <h1>{data.name}</h1>}
+      {data && <h2>{Math.round(data.main.temp)}°C</h2>}
+      {data && <h2>{data.weather[0].main}</h2>}
+      {data && (
+        <img
+          src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+          alt="icon"
+        />
+      )}
     </div>
   );
 }
