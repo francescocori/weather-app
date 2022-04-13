@@ -5,15 +5,21 @@ import HomePage from "./Components/Homepage";
 import WeatherPage from "./Components/WeatherPage";
 
 function App() {
-  const apiKey = "edc98e7954f86bbfa9e8ef821e348c92";
+  const apiKey = process.env.REACT_APP_API_KEY;
   const [city, setCity] = useState("");
   const [data, setData] = useState();
+  const [weeklyData, setWeeklyData] = useState();
+
+  const [coord, setCoord] = useState({
+    lon: 0,
+    lan: 0,
+  });
 
   // see how to show daily forecast
   // https://www.youtube.com/watch?v=yna914koyQE
 
   //get data from API
-  function getWeather() {
+  const getWeather = () => {
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${apiKey}`
@@ -23,12 +29,32 @@ function App() {
         setData(res.data);
       })
       .catch((err) => console.log(err));
-  }
+    setCoord({
+      lon: data.coord.lon,
+      lan: data.coord.lan,
+    });
+  };
+  //get weeeekly forecast
+
+  const getWeeklyForecast = (coord) => {
+    let lat = coord.lat;
+    let lon = coord.lon;
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,current&units=metric&appid=${apiKey}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setWeeklyData(res.data);
+        console.log("weekly", res.data);
+      });
+  };
 
   //handle Click / Submit
   const handlClick = (e) => {
     e.preventDefault();
     getWeather();
+    getWeeklyForecast();
     setCity("");
   };
   // create date of today
@@ -81,14 +107,18 @@ function App() {
       <h1>{dateBuilder(new Date())}</h1>
       {/* {today} */}
 
-      {data && <h1>{data.name}</h1>}
-      {data && <h2>{Math.round(data.main.temp)}°C</h2>}
-      {data && <h2>{data.weather[0].main}</h2>}
       {data && (
-        <img
-          src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-          alt="icon"
-        />
+        <>
+          <h1>{data.name}</h1>
+          <h2>{Math.round(data.main.temp)}°C</h2>{" "}
+          <h2>{data.weather[0].main}</h2>
+          <img
+            src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+            alt="icon"
+          />
+          <h3>Lon:{coord.lon}</h3>
+          <h3>Lat:{data.coord.lat}</h3>
+        </>
       )}
     </div>
   );
