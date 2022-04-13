@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 import HomePage from "./Components/Homepage";
 import WeatherPage from "./Components/WeatherPage";
-
+// import list from "./data/city.list.json"
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
   const [city, setCity] = useState("");
@@ -15,8 +15,25 @@ function App() {
     lan: 0,
   });
 
-  // see how to show daily forecast
-  // https://www.youtube.com/watch?v=yna914koyQE
+ //get list for input search
+//  const  GetCitySuggestions = (city)=>{
+//    let resp = [];
+//    if (city !== "") {
+//      for (let i = 0 ; i < suggestionList.length && resp.length<15; i++){
+//        if (suggestionList[i].name.toLowerCase().startsWith(city.toLowerCase())) {
+//         resp.push({
+//           id: data[i].id,
+//           long: data[i].coord.lon,
+//           lat: data[i].coord.lat,
+//           name: data[i].name,
+//           state: data[i].state,
+//           country: data[i].country,
+//         });
+//        }
+//      }
+//    }
+//    return resp;
+//  }
 
   //get data from API
   const getWeather = () => {
