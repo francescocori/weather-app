@@ -39,6 +39,7 @@ const  getCitySuggestions = (city)=>{
            name: data[i].name,
            country: data[i].country,
          });
+         setDataFound(resp)
          console.log("yesss",resp);
         }
       }
@@ -48,10 +49,11 @@ const  getCitySuggestions = (city)=>{
   useEffect(()=>{
    let result= getCitySuggestions(city);
    setDataFound(result)
-   console.log(result);
+   console.log("zzz",dataFound);
+   
   },[city])
   
-  // useEffect(()=>{getCitySuggestions()},[city])
+
   return (
     <div>
       <form>
@@ -65,9 +67,12 @@ const  getCitySuggestions = (city)=>{
       />
       <button type="submit">search..</button>
       </form>
-      <div>
-        <div id="match-list"> </div>
-      </div>
+      <h1>hello</h1>
+       
+          {dataFound.map((item)=>(
+            <h4> {item.name}</h4>
+          ))}
+        
     </div>
   )
 }
