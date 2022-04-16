@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 import WeatherPage from "./Components/WeatherPage";
 import SearchBar from "./Components/SearchBar"
-
+import SearchBarN from "./Components/SeatchBarN"
 
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -30,15 +30,17 @@ function App() {
         setData(res.data);
       })
       .catch((err) => console.log(err));
-    setCoord({
-      lon: data.coord.lon,
-      lan: data.coord.lan,
-    });
+    // setCoord({
+    //   lon: data.coord.lon,
+    //   lan: data.coord.lan,
+    // });
   };
  
   //handle Click / Submit
   const handlClick = (e) => {
     e.preventDefault();
+    console.log("city is",city);
+    setCity(city)
     getWeather();
     setCity("");
   };
@@ -114,8 +116,9 @@ function App() {
 
 return (
   <div className="App">
+<SearchBarN handlClick={handlClick} city={city}/>
+<SearchBar
 
-<SearchBar 
 dataFound={dataFound} 
 setDataFound={setDataFound} 
 setCity={setCity}

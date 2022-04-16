@@ -91,43 +91,43 @@ import data from "./city2.list.json"
 const SearchBar = () => {
 
 const [input, setInput]=useState("")
-const [dataFound, setDataFound] = useState([]);
-const [city, setCity] = useState()
+const [matchesArray, setMatchesArray] = useState([]);
+const [city, setCity] = useState("")
 
 
 const  getCitySuggestions = (input)=>{
-    let resp = [];
+    let matches = [];
     if (input !== "") {
-      for (let i = 0 ; i < data.length && resp.length<10; i++){
+      for (let i = 0 ; i < data.length && matches.length<10; i++){
       
         if (data[i].name.toLowerCase().startsWith(input.toLowerCase())) {
-         resp.push({
+         matches.push({
            id: data[i].id,
            long: data[i].coord.lon,
            lat: data[i].coord.lat,
            name: data[i].name,
            country: data[i].country,
          });
-         setDataFound(resp)
+         setMatchesArray(matches)
        
         }
       }
     }
-    return resp;
+    return matches;
   }
   useEffect(()=>{
-   let result= getCitySuggestions(input);
-   setDataFound(result)
+    getCitySuggestions(input);
+ 
 
    
   },[input])
   
   const handlClick = (e)=>{
     e.preventDefault()
-    setCity(e.target.value)
-    console.log(city);
+     let a =setCity(e.target.value)
+    console.log("city is..",a);
   }
-console.log(" city is..",city);
+
   return (
     <div>
       <form>
@@ -140,8 +140,8 @@ console.log(" city is..",city);
  
       />
       <button type="submit">search..</button>
-      {dataFound.map((item,index)=>(
-            <h4 onClick={(e)=>setCity(e.target.value) } value={item.name} key={index}> {item.name}</h4>
+      {matchesArray.map((item,index)=>(
+            <h4 onClick={(e)=>handlClick(e) } value={item} key={index}> {item.name}</h4>
           ))}
 
 
