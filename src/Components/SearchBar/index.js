@@ -5,12 +5,9 @@
 
 // const SearchBar = ({dataFound, setDataFound, setCity, handlClick,input, setInput, city}) => {
 
-
-
-
 // //   async function  searchCity(searchText) {
 
-// //    const res = await fetch("./city2.list.json"); 
+// //    const res = await fetch("./city2.list.json");
 // //    const cities = await res.json()
 // //    console.log(cities)
 // //    //get matches to currents text input
@@ -23,14 +20,13 @@
 
 // // searchCity(city)
 
-
 // //get list for input search
 
 // const  getCitySuggestions = (input)=>{
 //     let resp = [];
 //     if (input !== "") {
 //       for (let i = 0 ; i < data.length && resp.length<10; i++){
-      
+
 //         if (data[i].name.toLowerCase().startsWith(input.toLowerCase())) {
 //          resp.push({
 //            id: data[i].id,
@@ -50,19 +46,19 @@
 //    let result= getCitySuggestions(input);
 //    setDataFound(result)
 //    console.log("zzz",dataFound);
-   
+
 //   },[input])
-  
+
 //   const onSuggestHandler = (input) => {
 //     setInput(input)
 //     setDataFound([])
 //   }
- 
+
 //   return (
 //     <div>
 //       <form>
-       
-//       <input 
+
+//       <input
 //       type="text"
 //       name="search"
 //       id = "search"
@@ -72,87 +68,76 @@
 //       />
 //       <button type="submit">search..</button>
 //       </form>
-    
-       
+
 //           {dataFound && dataFound.map((location)=>(
 //             <h4 onClick={(e)=>onSuggestHandler(dataFound.name)}> {location.name}</h4>
 //           ))}
-        
+
 //     </div>
 //   )
 // }
 
 // export default SearchBar
 
-import React, {useState, useEffect} from 'react'
-import data from "./city2.list.json"
+import React, { useState, useEffect } from "react";
+import data from "./city2.list.json";
 
+const SearchBar = ({ getWeather }) => {
+  const [input, setInput] = useState("");
+  const [matchesArray, setMatchesArray] = useState([]);
+  const [city, setCity] = useState("");
 
-const SearchBar = () => {
-
-const [input, setInput]=useState("")
-const [matchesArray, setMatchesArray] = useState([]);
-const [city, setCity] = useState("")
-
-
-const  getCitySuggestions = (input)=>{
+  const getCitySuggestions = (input) => {
     let matches = [];
     if (input !== "") {
-      for (let i = 0 ; i < data.length && matches.length<10; i++){
-      
+      for (let i = 0; i < data.length && matches.length < 10; i++) {
         if (data[i].name.toLowerCase().startsWith(input.toLowerCase())) {
-         matches.push({
-           id: data[i].id,
-           long: data[i].coord.lon,
-           lat: data[i].coord.lat,
-           name: data[i].name,
-           country: data[i].country,
-         });
-         setMatchesArray(matches)
-       
+          matches.push({
+            id: data[i].id,
+            long: data[i].coord.lon,
+            lat: data[i].coord.lat,
+            name: data[i].name,
+            country: data[i].country,
+          });
+          setMatchesArray(matches);
         }
       }
     }
     return matches;
-  }
-  useEffect(()=>{
+  };
+  useEffect(() => {
     getCitySuggestions(input);
- 
+  }, [input]);
 
-   
-  },[input])
-  
-  const handlClick = (e)=>{
-    e.preventDefault()
-     let a =setCity(e.target.value)
-    console.log("city is..",a);
-  }
+  const handleClick = (cityName) => {
+    setCity(cityName);
+    setInput(cityName);
+  };
 
   return (
     <div>
-      <form>
-      <input 
-      type="text"
-      name="search"
-      id = "search"
-      placeholder="search..."
-      onChange={(e)=>setInput(e.target.value)}
- 
-      />
-      <button type="submit">search..</button>
-      {matchesArray.map((item,index)=>(
-            <h4 onClick={(e)=>handlClick(e) } value={item} key={index}> {item.name}</h4>
-          ))}
-
-
-      
+      <form onSubmit={(e) => getWeather()}>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="search..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <button type="submit">search..</button>
+        {matchesArray.map((item, index) => (
+          <h4
+            onClick={() => handleClick(item.name)}
+            value={item.name}
+            key={item.id}
+          >
+            {item.name}
+          </h4>
+        ))}
       </form>
-    
-       
-         
-        
     </div>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;
