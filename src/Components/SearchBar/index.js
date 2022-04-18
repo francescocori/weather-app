@@ -81,12 +81,33 @@
 
 import React, { useState, useEffect } from "react";
 import data from "./city2.list.json";
-
-const SearchBar = ({ getWeather }) => {
+import axios from "axios";
+const SearchBar = () => {
   const [input, setInput] = useState("");
   const [matchesArray, setMatchesArray] = useState([]);
   const [city, setCity] = useState("");
+  const apiKey = process.env.REACT_APP_API_KEY;
 
+  const getWeather = () => {
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${apiKey}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        // setData(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  //handle Click / Submit
+  const handlSubmit = (e) => {
+    console.log("city is", city);
+    // setCity(city);
+    getWeather(city);
+    // setCity("");
+  };
+  //filter suggestions
   const getCitySuggestions = (input) => {
     let matches = [];
     if (input !== "") {
@@ -105,18 +126,21 @@ const SearchBar = ({ getWeather }) => {
     }
     return matches;
   };
+  //call function every time user type
   useEffect(() => {
     getCitySuggestions(input);
   }, [input]);
 
+  // handle when user click on city
   const handleClick = (cityName) => {
-    setCity(cityName);
-    setInput(cityName);
+    setCity((prev) => cityName);
+    setInput((prev) => cityName);
+    handlSubmit();
   };
 
   return (
     <div>
-      <form onSubmit={(e) => getWeather()}>
+      <form>
         <input
           type="text"
           name="search"
@@ -125,7 +149,9 @@ const SearchBar = ({ getWeather }) => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <button type="submit">search..</button>
+        <button type="button" onClick={handlSubmit}>
+          search..
+        </button>
         {matchesArray.map((item, index) => (
           <h4
             onClick={() => handleClick(item.name)}
@@ -136,6 +162,19 @@ const SearchBar = ({ getWeather }) => {
           </h4>
         ))}
       </form>
+      {/* {data && (
+        <>
+          <h1>{data.name}</h1>
+          <h2>{Math.round(data.main.temp)}°C</h2>{" "}
+          <h2>{data.weather[0].main}</h2>
+          <img
+            src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+            alt="icon"
+          />
+          <h3>Lon:{data.coord.lon}</h3>
+          <h3>Lat:{data.coord.lat}</h3>
+        </>
+      )} */}
     </div>
   );
 };

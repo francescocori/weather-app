@@ -31,12 +31,11 @@ function App() {
   };
 
   //handle Click / Submit
-  const handlClick = (e) => {
-    e.preventDefault();
+  const handlSubmit = (e) => {
     console.log("city is", city);
-    setCity(city);
+    // setCity(city);
     getWeather();
-    setCity("");
+    // setCity("");
   };
   // create date of today
   const dateBuilder = (d) => {
@@ -92,32 +91,26 @@ function App() {
     return resp;
   };
   useEffect(() => {
-    let result = getCitySuggestions(input);
-    setDataFound(result);
-    console.log("zzz", dataFound);
+    getCitySuggestions(input);
+    // setDataFound(result);
   }, [input]);
-
-  const handleInputChange = (e) => {
-    let text = setInput(e.target.value);
-    setChoosed(text);
-  };
 
   return (
     <div className="App">
-      <SearchBarN handlClick={handlClick} city={city} />
+      <SearchBarN handlSubmit={handlSubmit} city={city} />
       <SearchBar
         getWeather={getWeather}
         dataFound={dataFound}
         setDataFound={setDataFound}
         setCity={setCity}
-        handlClick={handlClick}
+        handlSubmit={handlSubmit}
         input={input}
         setInput={setInput}
         city={city}
       />
       {/* +++++++++++++ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
 
-      <form onSubmit={handlClick}>
+      <form onSubmit={handlSubmit}>
         <input
           type="text"
           name="cit"
