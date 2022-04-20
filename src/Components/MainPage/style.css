@@ -1,0 +1,18 @@
+.weather-page {
+  text-align: center;
+}
+
+.nextday-weather {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 300px;
+  border-bottom: 1px solid #eef778;
+  width: 100vw;
+}
+.nextday-icon {
+  width: 40px;
+  height: 20px;
+  object-fit: cover;
+}

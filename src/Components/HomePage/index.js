@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import data from "../../Data/city2.list.json";
 import "./style.css";
 const HomePage = ({
@@ -14,6 +15,7 @@ const HomePage = ({
   forecastData,
   getWeek,
 }) => {
+  let navigate = useNavigate();
   // create date of today
   const dateBuilder = (d) => {
     let months = [
@@ -83,7 +85,7 @@ const HomePage = ({
       getCurrentWeather();
       setInput("");
       getWeeklyWeather();
-      console.log("try", forecastData);
+      navigate("/weather");
     }
   };
   return (

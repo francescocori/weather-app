@@ -1,8 +1,8 @@
 import React from "react";
-
+import "./style.css";
 const MainPage = ({ locationData, forecastData }) => {
   return (
-    <div>
+    <div className="weather-page">
       {locationData && (
         <>
           <h1>{locationData.name}</h1>
@@ -14,6 +14,20 @@ const MainPage = ({ locationData, forecastData }) => {
           />
         </>
       )}
+      {forecastData.dailyForecast &&
+        forecastData.dailyForecast.map((day, index) => (
+          <div className="nextday-weather-container">
+            <div className="nextday-weather">
+              <img
+                src={`http://openweathermap.org/img/wn/${day.weatherIcon}@2x.png`}
+                alt="icon"
+                className="nextday-icon"
+              />
+              <span>{day.minTemp}°C</span>
+              <span>{day.maxTemp}°C</span>
+            </div>
+          </div>
+        ))}
     </div>
   );
 };
