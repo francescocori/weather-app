@@ -11,6 +11,8 @@ const HomePage = ({
   setMatchesArray,
   getWeeklyWeather,
   locationData,
+  forecastData,
+  getWeek,
 }) => {
   // create date of today
   const dateBuilder = (d) => {
@@ -81,10 +83,12 @@ const HomePage = ({
       getCurrentWeather();
       setInput("");
       getWeeklyWeather();
+      console.log("try", forecastData);
     }
   };
   return (
     <div className="homepage">
+      <h3>think mobile first</h3>
       <h1 className="header">
         Tell us where
         <br /> and we will tell you the weather...

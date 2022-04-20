@@ -12,7 +12,11 @@
   color: #eef778;
   line-height: 2.5;
 }
-
+.current-date {
+  margin-top: -10px;
+  margin-bottom: 70px;
+  font-size: 14px !important;
+}
 .current-date,
 .list-item,
 .searchbar {
