@@ -48,6 +48,11 @@ const HomePage = ({
 
     return `${day} ${date} ${month} ${year}`;
   };
+  console.log(new Date());
+  console.log(new Date().getDay());
+  console.log(new Date().getDate());
+  console.log(new Date().getMonth());
+  console.log(new Date().getFullYear());
   //show only matching options
   const getCitySuggestions = (input) => {
     let matches = [];
@@ -109,6 +114,7 @@ const HomePage = ({
             onChange={(e) => setInput(e.target.value)}
           />
         </div>
+
         {matchesArray.map((item, index) => (
           <div
             className="list-item"
