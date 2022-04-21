@@ -27,6 +27,7 @@ const MainPage = ({ locationData, forecastData }) => {
 
   return (
     <div className="weather-page">
+      {/* ++++++++++++++ CURRENT WEATHER ++++++++++++++++++++++ */}
       {locationData && (
         <>
           <h1>{locationData.name}</h1>
@@ -43,7 +44,9 @@ const MainPage = ({ locationData, forecastData }) => {
         forecastData.dailyForecast.map((day, index) => (
           <div className="nextday-weather-container">
             <div className="nextday-weather" key={index}>
-              <span className="current-date">{getDays(index)}</span>
+              <span className="nextday-name">
+                {getDays(index) === 3 ? "Today" : getDays(index)}
+              </span>
               <img
                 src={`http://openweathermap.org/img/wn/${day.weatherIcon}@2x.png`}
                 alt="icon"
