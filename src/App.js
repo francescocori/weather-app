@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
-import HomePage from "./Components/HomePage";
-import MainPage from "./Components/MainPage";
+import SearchPage from "./Pages/SearchPage";
+import WeatherPage from "./Pages/WeatherPage";
 const App = () => {
   const apiKey = process.env.REACT_APP_API_KEY;
   const [input, setInput] = useState("");
@@ -64,7 +64,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log("cc", forecastData.dailyForecast);
+    console.log("cc", forecastData);
   }, [forecastData]);
   /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -75,7 +75,7 @@ const App = () => {
           exact
           path="/"
           element={
-            <HomePage
+            <SearchPage
               input={input}
               setInput={setInput}
               city={city}
@@ -92,7 +92,10 @@ const App = () => {
         <Route
           path="/weather"
           element={
-            <MainPage locationData={locationData} forecastData={forecastData} />
+            <WeatherPage
+              locationData={locationData}
+              forecastData={forecastData}
+            />
           }
         />
       </Routes>

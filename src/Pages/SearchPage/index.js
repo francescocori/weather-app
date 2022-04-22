@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import data from "../../Data/city2.list.json";
 import "./style.css";
-const HomePage = ({
+const SearchPage = ({
   city,
   setCity,
   getCurrentWeather,
@@ -48,11 +48,7 @@ const HomePage = ({
 
     return `${day} ${date} ${month} ${year}`;
   };
-  console.log(new Date());
-  console.log(new Date().getDay());
-  console.log(new Date().getDate());
-  console.log(new Date().getMonth());
-  console.log(new Date().getFullYear());
+
   //show only matching options
   const getCitySuggestions = (input) => {
     let matches = [];
@@ -133,4 +129,4 @@ const HomePage = ({
   );
 };
 
-export default HomePage;
+export default SearchPage;
