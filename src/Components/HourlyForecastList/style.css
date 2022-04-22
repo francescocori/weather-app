@@ -1,0 +1,13 @@
+.hourly-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.hour-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-right: 1px solid black;
+}

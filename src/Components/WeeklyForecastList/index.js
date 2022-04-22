@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 const WeeklyForecastList = ({ forecastData }) => {
+  const dailyWeather = forecastData.dailyForecast;
   const getDays = (index) => {
     let days = [
       "Sunday",
@@ -26,8 +27,8 @@ const WeeklyForecastList = ({ forecastData }) => {
   };
   return (
     <div>
-      {forecastData.dailyForecast &&
-        forecastData.dailyForecast.map((day, index) => (
+      {dailyWeather &&
+        dailyWeather.map((day, index) => (
           <div className="nextday-weather-container">
             <div className="nextday-weather" key={index}>
               <span className="nextday-name">
