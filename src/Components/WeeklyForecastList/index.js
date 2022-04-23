@@ -44,9 +44,7 @@ const WeeklyForecastList = ({ forecastData }) => {
         dailyWeather.map((day, index) => (
           <div className="nextday-weather-container">
             <div className="nextday-weather" key={index}>
-              <span className="nextday-name">
-                {getDays(index) === 3 ? "Today" : getDays(index)}
-              </span>
+              <span className="nextday-name">{getDays(index)}</span>
               <img
                 src={`http://openweathermap.org/img/wn/${day.weatherIcon}@2x.png`}
                 alt="icon"
