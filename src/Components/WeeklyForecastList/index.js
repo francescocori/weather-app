@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 const WeeklyForecastList = ({ forecastData }) => {
+  const userDate = new Date();
+  const userTime = userDate.getTime();
+  const localOffSet = userDate.getTimezoneOffset() * 60000;
+  const utc = userTime + localOffSet;
+  const cityDestionationOffSet = forecastData.utcOffset;
+  const cityDestionationOffSetDate = utc + cityDestionationOffSet * 1000;
+  const dateInDestinationCity = new Date(cityDestionationOffSetDate);
+  const weekDayInDestinationCityQ = dateInDestinationCity.getDay();
+  console.log(weekDayInDestinationCityQ);
+
+  // rivedi come usare il calcolo fatto sopra per fare il display dei giorni sotto
+
   const dailyWeather = forecastData.dailyForecast;
   const getDays = (index) => {
     let days = [
@@ -25,6 +37,7 @@ const WeeklyForecastList = ({ forecastData }) => {
 
     return daysRearrange[index];
   };
+
   return (
     <div>
       {dailyWeather &&

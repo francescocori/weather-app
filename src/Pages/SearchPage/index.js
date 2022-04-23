@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import data from "../../Data/city2.list.json";
+import TodayDate from "../../Components/TodayDate";
 import "./style.css";
 const SearchPage = ({
   city,
@@ -11,43 +12,9 @@ const SearchPage = ({
   matchesArray,
   setMatchesArray,
   getWeeklyWeather,
-  locationData,
-  forecastData,
-  getWeek,
 }) => {
   let navigate = useNavigate();
-  // create date of today
-  const dateBuilder = (d) => {
-    let months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    let days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    let day = days[d.getDay()];
-    let date = d.getDate();
-    let month = months[d.getMonth()];
-    let year = d.getFullYear();
-
-    return `${day} ${date} ${month} ${year}`;
-  };
+  const [error, setError] = useState(false);
 
   //show only matching options
   const getCitySuggestions = (input) => {
@@ -88,16 +55,22 @@ const SearchPage = ({
       getWeeklyWeather();
       navigate("/weather");
     }
+    setError(true);
   };
   return (
-    <div className="homepage">
-      <h3>think mobile first</h3>
-      <h1 className="header">
+    <div className="searchPage-body">
+      {error ? (
+        <div className="error-message">Please enter a city name</div>
+      ) : (
+        ""
+      )}
+
+      <h1 className="searchPage-header">
         Tell us where
         <br /> and we will tell you the weather...
       </h1>
-      <h3 className="current-date">{dateBuilder(new Date())}</h3>
 
+      <TodayDate />
       <form>
         <div className="input-container">
           <input
