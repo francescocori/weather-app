@@ -1,20 +1,17 @@
 import React, { useEffect } from "react";
 import "./style.css";
 const WeeklyForecastList = ({ forecastData }) => {
-  const userDate = new Date();
-  const userTime = userDate.getTime();
-  const localOffSet = userDate.getTimezoneOffset() * 60000;
-  const utc = userTime + localOffSet;
-  const cityDestionationOffSet = forecastData.utcOffset;
-  const cityDestionationOffSetDate = utc + cityDestionationOffSet * 1000;
-  const dateInDestinationCity = new Date(cityDestionationOffSetDate);
-  const weekDayInDestinationCityQ = dateInDestinationCity.getDay();
-  console.log(weekDayInDestinationCityQ);
-
-  // rivedi come usare il calcolo fatto sopra per fare il display dei giorni sotto
-
   const dailyWeather = forecastData.dailyForecast;
   const getDays = (index) => {
+    const userDate = new Date();
+    const userTime = userDate.getTime();
+    const localOffSet = userDate.getTimezoneOffset() * 60000;
+    const utc = userTime + localOffSet;
+    const cityDestionationOffSet = forecastData.utcOffset;
+    const cityDestionationOffSetDate = utc + cityDestionationOffSet * 1000;
+    const dateInDestinationCity = new Date(cityDestionationOffSetDate);
+    const weekDayInDestinationCityQ = dateInDestinationCity.getDay();
+
     let days = [
       "Sunday",
       "Monday",
@@ -24,8 +21,8 @@ const WeeklyForecastList = ({ forecastData }) => {
       "Friday",
       "Saturday",
     ];
-    let date = new Date();
-    let today = date.getDay();
+
+    let today = weekDayInDestinationCityQ;
     let daysRearrange = [];
 
     for (let i = today; i < days.length; i++) {
@@ -40,9 +37,9 @@ const WeeklyForecastList = ({ forecastData }) => {
 
   return (
     <div>
-      {dailyWeather &&
-        dailyWeather.map((day, index) => (
-          <div className="nextday-weather-container">
+      <div className="nextday-weather-container ">
+        {dailyWeather &&
+          dailyWeather.map((day, index) => (
             <div className="nextday-weather" key={index}>
               <span className="nextday-name">{getDays(index)}</span>
               <img
@@ -53,8 +50,8 @@ const WeeklyForecastList = ({ forecastData }) => {
               <span>{Math.round(day.minTemp)}°C</span>
               <span>{Math.round(day.maxTemp)}°C</span>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   );
 };
