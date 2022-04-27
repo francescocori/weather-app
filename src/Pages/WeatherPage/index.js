@@ -37,7 +37,7 @@ const WeatherPage = ({ locationData, forecastData }) => {
         <source src={setBackground()} type="video/mp4" />
       </video> */}
       {locationData && (
-        <>
+        <div className="header">
           <p className="header-city">{locationData.name}</p>
           <span className="header-temperature">
             {Math.round(locationData.main.temp)}
@@ -48,8 +48,9 @@ const WeatherPage = ({ locationData, forecastData }) => {
           <img
             src={`http://openweathermap.org/img/wn/${locationData.weather[0].icon}@2x.png`}
             alt="icon"
+            className="header-icon"
           />
-        </>
+        </div>
       )}
 
       {/* ++++++++++++++ HOURLY WEATHER ++++++++++++++++++++++ */}

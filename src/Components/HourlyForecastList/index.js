@@ -35,20 +35,24 @@ const HourlyForecastList = ({ forecastData }) => {
   };
 
   return (
-    <div className="horizontal-scroll">
-      {hourlyWeather &&
-        hourlyWeather.map((hour, index) => (
-          <div className="horizontal-scroll-item " key={index}>
-            <div className="item-time">{hoursForecast(index)}</div>
-            <img
-              src={`http://openweathermap.org/img/wn/${hour.weatherIcon}@2x.png`}
-              alt="icon"
-              className="item-icon"
-            />
-            <div className="item-temp">{Math.round(hour.temp)}°</div>
-            {/* <div className="item-weather">{hour.weatherCondition}</div> */}
-          </div>
-        ))}
+    <div className="hourly-weather-container">
+      {hourlyWeather && <div className="title">Hourly weather</div>}
+
+      <div className="horizontal-scroll">
+        {hourlyWeather &&
+          hourlyWeather.map((hour, index) => (
+            <div className="horizontal-scroll-item " key={index}>
+              <div className="item-time">{hoursForecast(index)}</div>
+              <img
+                src={`http://openweathermap.org/img/wn/${hour.weatherIcon}@2x.png`}
+                alt="icon"
+                className="item-icon"
+              />
+              <div className="item-temp">{Math.round(hour.temp)}°</div>
+              {/* <div className="item-weather">{hour.weatherCondition}</div> */}
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

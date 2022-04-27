@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
@@ -6,7 +6,6 @@ import SearchPage from "./Pages/SearchPage";
 import WeatherPage from "./Pages/WeatherPage";
 const App = () => {
   const apiKey = process.env.REACT_APP_API_KEY;
-  const [input, setInput] = useState("");
   const [city, setCity] = useState("");
   const [matchesArray, setMatchesArray] = useState([]);
   const [locationData, setLocationData] = useState();
@@ -43,7 +42,6 @@ const App = () => {
           weatherCondition: hour.weather[0].main,
           weatherIcon: hour.weather[0].icon,
         }));
-        // hourlyReduced = hourlyReduced.slice(0, 24);    ///changed this with
         const dailyReduced = daily.map((day, index) => ({
           id: index,
           minTemp: day.temp.min,
@@ -54,7 +52,7 @@ const App = () => {
 
         const forecastInfo = {
           utcOffset: utcOffset,
-          hourlyForecast: hourlyReduced.slice(0, 24), //thissssss
+          hourlyForecast: hourlyReduced.slice(0, 24),
           dailyForecast: dailyReduced.slice(0, 7),
         };
         setForecastData(forecastInfo);
@@ -62,11 +60,6 @@ const App = () => {
         return forecastInfo;
       });
   };
-
-  // useEffect(() => {
-  //   console.log("cc", forecastData);
-  // }, [forecastData]);
-  /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <BrowserRouter>
@@ -76,8 +69,6 @@ const App = () => {
           path="/"
           element={
             <SearchPage
-              input={input}
-              setInput={setInput}
               city={city}
               setCity={setCity}
               matchesArray={matchesArray}

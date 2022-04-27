@@ -7,14 +7,13 @@ const SearchPage = ({
   city,
   setCity,
   getCurrentWeather,
-  input,
-  setInput,
   matchesArray,
   setMatchesArray,
   getWeeklyWeather,
 }) => {
   let navigate = useNavigate();
   const [error, setError] = useState(false);
+  const [input, setInput] = useState("");
 
   //show only matching options
   const getCitySuggestions = (input) => {

@@ -4,8 +4,6 @@
   height: 100vh;
   font-family: "Inter";
   background-repeat: no-repeat;
-  /* position: relative; */
-  /* z-index: 1; */
 }
 
 .header-city,
@@ -14,11 +12,11 @@
 }
 
 .header-temperature {
-  font-size: 100px;
+  font-size: 6rem;
   font-weight: 100;
 }
 
-.bg-video {
+/* .bg-video {
   position: absolute;
   width: 100%;
   left: 50%;
@@ -27,4 +25,28 @@
   object-fit: cover;
   transform: translate(-50%, -50%);
   z-index: -1;
+} */
+
+@media (min-width: 768px) {
+  .weather-page {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+  .header {
+    grid-area: 1 / 1 / 6 / 3;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .header-city,
+  .header-weather {
+    letter-spacing: 1.5px;
+    font-size: 2.5rem;
+  }
+
+  .header-icon {
+    width: 8rem;
+  }
 }
