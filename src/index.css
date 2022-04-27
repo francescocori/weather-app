@@ -17,9 +17,11 @@ body {
     #267c9271,
     #f8aa0083
   ); */
-  background: linear-gradient(-60deg, #0d8d8d, #069a8e, #a1e3d8);
+  /* background: linear-gradient(-60deg, #0d8d8d, #069a8e, #a1e3d8);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite; */
+
+  background-image: url(https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80);
 }
 
 @keyframes gradient {

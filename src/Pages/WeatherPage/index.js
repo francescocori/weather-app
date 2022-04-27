@@ -38,7 +38,7 @@ const WeatherPage = ({ locationData, forecastData }) => {
       </video> */}
       {locationData && (
         <>
-          <p className="header-name">{locationData.name}</p>
+          <p className="header-city">{locationData.name}</p>
           <span className="header-temperature">
             {Math.round(locationData.main.temp)}
           </span>

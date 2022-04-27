@@ -38,15 +38,15 @@ const HourlyForecastList = ({ forecastData }) => {
     <div className="horizontal-scroll">
       {hourlyWeather &&
         hourlyWeather.map((hour, index) => (
-          <div className="horizontal-scroll__item " key={index}>
-            <div>{hoursForecast(index)}</div>
+          <div className="horizontal-scroll-item " key={index}>
+            <div className="item-time">{hoursForecast(index)}</div>
             <img
               src={`http://openweathermap.org/img/wn/${hour.weatherIcon}@2x.png`}
               alt="icon"
-              className="nextday-icon"
+              className="item-icon"
             />
-            <div>{Math.round(hour.temp)}°</div>
-            <div>{hour.weatherCondition}</div>
+            <div className="item-temp">{Math.round(hour.temp)}°</div>
+            {/* <div className="item-weather">{hour.weatherCondition}</div> */}
           </div>
         ))}
     </div>
