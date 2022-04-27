@@ -54,7 +54,7 @@ const App = () => {
 
         const forecastInfo = {
           utcOffset: utcOffset,
-          hourlyForecast: hourlyReduced.slice(0, 12), //thissssss
+          hourlyForecast: hourlyReduced.slice(0, 24), //thissssss
           dailyForecast: dailyReduced.slice(0, 7),
         };
         setForecastData(forecastInfo);
@@ -63,9 +63,9 @@ const App = () => {
       });
   };
 
-  useEffect(() => {
-    console.log("cc", forecastData);
-  }, [forecastData]);
+  // useEffect(() => {
+  //   console.log("cc", forecastData);
+  // }, [forecastData]);
   /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (

@@ -1,4 +1,12 @@
-.nextday-weather {
+.weekly-weather-container {
+  background: #9be3dd6e;
+  border: 1px solid #e0e0e0;
+  box-shadow: 2px 8px 20px -1px rgba(0, 0, 0, 0.15);
+
+  border-radius: 16px;
+}
+
+.weekday-weather {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -11,14 +19,15 @@
   font-size: 1.2rem;
   letter-spacing: 2px;
   font-weight: 300;
-  color: #eef778;
+  /* color: #eef778; */
+  color: black;
 }
-.nextday-icon {
+.weekly-icon {
   width: 40px;
   height: 20px;
   object-fit: cover;
 }
 
-.nextday-name {
+.weekday {
   width: 60px;
 }

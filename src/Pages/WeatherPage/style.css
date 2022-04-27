@@ -1,3 +1,30 @@
 .weather-page {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Inter";
+  background-repeat: no-repeat;
+  /* position: relative; */
+  /* z-index: 1; */
+}
+
+.header-name,
+.header-weather {
+  letter-spacing: 1.5px;
+}
+
+.header-temperature {
+  font-size: 100px;
+  font-weight: 100;
+}
+
+.bg-video {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }

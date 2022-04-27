@@ -1,7 +1,8 @@
-.hourly-container {
+/* .hourly-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  padding: 10px;
 }
 
 .hour-weather {
@@ -10,4 +11,22 @@
   justify-content: center;
   text-align: center;
   border-right: 1px solid black;
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    background-color: blue;
+  }
+} */
+.horizontal-scroll {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  height: 220px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
 }

@@ -37,15 +37,15 @@ const WeeklyForecastList = ({ forecastData }) => {
 
   return (
     <div>
-      <div className="nextday-weather-container ">
+      <div className="weekly-weather-container ">
         {dailyWeather &&
           dailyWeather.map((day, index) => (
-            <div className="nextday-weather" key={index}>
-              <span className="nextday-name">{getDays(index)}</span>
+            <div className="weekday-weather" key={index}>
+              <span className="weekday">{getDays(index)}</span>
               <img
                 src={`http://openweathermap.org/img/wn/${day.weatherIcon}@2x.png`}
                 alt="icon"
-                className="nextday-icon"
+                className="weekly-icon"
               />
               <span>{Math.round(day.minTemp)}°C</span>
               <span>{Math.round(day.maxTemp)}°C</span>
