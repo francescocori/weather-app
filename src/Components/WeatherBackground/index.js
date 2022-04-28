@@ -1,17 +1,18 @@
-import React, { useEffect } from "react";
-import clear from "../../weather-animations/clear.mp4";
-import cloud from "../../weather-animations/cloud4.mp4";
-import fog from "../../weather-animations/fog.mp4";
+import React from "react";
+import clearDay from "../../weather-animations/clearDay.mp4"; // goood
+import clearNight from "../../weather-animations/clearNight.mp4";
+import cloud from "../../weather-animations/cloud.mp4"; //goood
 import snow from "../../weather-animations/snow.mp4";
 import rain from "../../weather-animations/rain.mp4";
-import storm from "../../weather-animations/storm.mp4";
-
+import stormNight from "../../weather-animations/stormNight.mp4";
+import stormDay from "../../weather-animations/stormDay.mp4";
 const WeatherBackground = ({ currentData }) => {
   const setBackground = () => {
     let weather = currentData.weather[0].main;
+
     switch (weather) {
       case "Clear":
-        return clear;
+        return clearDay;
       case "Clouds":
       case "Mist":
       case "Smoke":
@@ -24,10 +25,9 @@ const WeatherBackground = ({ currentData }) => {
       case "Rain":
       case "Drizzle":
         return rain;
-      case "fog":
-        return fog;
+
       case "Thunderstorm":
-        return storm;
+        return stormNight;
 
       default:
         return cloud;
@@ -35,7 +35,6 @@ const WeatherBackground = ({ currentData }) => {
   };
   return (
     <div>
-      {currentData && currentData.weather[0].main}
       {currentData && (
         <video className="bg-video" autoPlay loop muted>
           <source src={setBackground()} type="video/mp4" />

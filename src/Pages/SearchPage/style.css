@@ -6,6 +6,10 @@
   height: 100vh;
   text-align: center;
   color: #eef778;
+  background-color: #e47377;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
 }
 .searchPage-header {
   font-family: "Inter";
