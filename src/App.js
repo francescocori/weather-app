@@ -7,10 +7,10 @@ import WeatherPage from "./Pages/WeatherPage";
 const App = () => {
   const apiKey = process.env.REACT_APP_API_KEY;
   const [city, setCity] = useState("");
-  const [matchesArray, setMatchesArray] = useState([]);
-  const [locationData, setLocationData] = useState();
+  const [matchingCities, setMatchingCities] = useState([]);
+  const [currentData, setCurrentData] = useState();
   const [forecastData, setForecastData] = useState({});
-  //get today weather info
+
   const getCurrentWeather = () => {
     axios
       .get(
@@ -19,15 +19,14 @@ const App = () => {
       .then((res) => {
         console.log(res.data);
         let resp = res.data;
-        setLocationData(resp);
+        setCurrentData(resp);
       })
       .catch((err) => console.log(err));
   };
 
-  //get weekly weather info
   const getWeeklyWeather = () => {
-    let lat = matchesArray[0].lat;
-    let lon = matchesArray[0].long;
+    let lat = matchingCities[0].lat;
+    let lon = matchingCities[0].long;
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,current&units=metric&appid=${apiKey}`
@@ -71,12 +70,10 @@ const App = () => {
             <SearchPage
               city={city}
               setCity={setCity}
-              matchesArray={matchesArray}
+              matchingCities={matchingCities}
               getCurrentWeather={getCurrentWeather}
-              setMatchesArray={setMatchesArray}
+              setMatchingCities={setMatchingCities}
               getWeeklyWeather={getWeeklyWeather}
-              locationData={locationData}
-              forecastData={forecastData}
             />
           }
         />
@@ -84,7 +81,7 @@ const App = () => {
           path="/weather"
           element={
             <WeatherPage
-              locationData={locationData}
+              currentData={currentData}
               forecastData={forecastData}
             />
           }

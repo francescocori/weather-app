@@ -2,41 +2,15 @@ import React from "react";
 import "./style.css";
 import WeeklyForecastList from "../../Components/WeeklyForecastList";
 import HourlyForecastList from "../../Components/HourlyForecastList";
-import clear from "../../weather-animations/clear.mp4";
-import cloud from "../../weather-animations/cloud4.mp4";
-import fog from "../../weather-animations/fog.mp4";
-import snow from "../../weather-animations/snow.mp4";
-import rain from "../../weather-animations/rain.mp4";
-import storm from "../../weather-animations/storm.mp4";
+import WeatherBackground from "../../Components/WeatherBackground";
 
-const WeatherPage = ({ locationData, forecastData }) => {
-  // const setBackground = () => {
-  //   let a = locationData.weather[0].main;
-  //   switch (a) {
-  //     case "clear":
-  //       return clear;
-  //     case "clouds":
-  //       return cloud;
-  //     case "snow":
-  //       return snow;
-  //     case "rain":
-  //       return rain;
-  //     case "fog":
-  //       return fog;
-  //     case "thunderstorm":
-  //       return storm;
-
-  //     default:
-  //       return cloud;
-  //   }
-  // };
-
+const WeatherPage = ({ currentData, forecastData }) => {
   return (
     <div className="weather-page">
       {/* <video className="bg-video" autoPlay loop muted>
         <source src={setBackground()} type="video/mp4" />
       </video> */}
-      {locationData && (
+      {/* {locationData && (
         <div className="header">
           <p className="header-city">{locationData.name}</p>
           <span className="header-temperature">
@@ -51,12 +25,30 @@ const WeatherPage = ({ locationData, forecastData }) => {
             className="header-icon"
           />
         </div>
+      )} */}
+      {currentData && (
+        <div className="header">
+          <p className="header-city">{currentData.name}</p>
+          <div className="header-temperature">
+            {Math.round(currentData.main.temp)}°C
+          </div>
+          {/* <div>°C</div> */}
+          <img
+            src={`http://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`}
+            alt="icon"
+            className="header-icon"
+          />
+
+          <div className="header-weather">{currentData.weather[0].main}</div>
+        </div>
       )}
 
       {/* ++++++++++++++ HOURLY WEATHER ++++++++++++++++++++++ */}
       <HourlyForecastList forecastData={forecastData} />
       {/* ++++++++++++++ WEEKLY WEATHER ++++++++++++++++++++++ */}
       <WeeklyForecastList forecastData={forecastData} />
+      {/*++++++++++++++BACKGROUND CHANGING+++++++++++++++++++++ */}
+      <WeatherBackground currentData={currentData} />
     </div>
   );
 };

@@ -7,8 +7,8 @@ const SearchPage = ({
   city,
   setCity,
   getCurrentWeather,
-  matchesArray,
-  setMatchesArray,
+  matchingCities,
+  setMatchingCities,
   getWeeklyWeather,
 }) => {
   let navigate = useNavigate();
@@ -28,7 +28,7 @@ const SearchPage = ({
             name: data[i].name,
             country: data[i].country,
           });
-          setMatchesArray(matches);
+          setMatchingCities(matches);
         }
       }
     }
@@ -46,7 +46,6 @@ const SearchPage = ({
     setInput((prev) => cityName);
   };
 
-  //handle Click / Submit
   const handlSubmit = (e) => {
     if (city !== "") {
       getCurrentWeather();
@@ -83,7 +82,7 @@ const SearchPage = ({
           />
         </div>
 
-        {matchesArray.map((item, index) => (
+        {matchingCities.map((item, index) => (
           <div
             className="list-item"
             onClick={() => handleClick(item.name)}
