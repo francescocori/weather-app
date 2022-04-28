@@ -26,8 +26,6 @@
 
 @media (min-width: 768px) {
   .horizontal-scroll {
-    margin-top: auto;
-    margin-bottom: auto;
   }
   .hourly-weather-container {
     grid-area: 1 / 3 / 3 / 6;
