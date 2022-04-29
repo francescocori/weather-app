@@ -28,6 +28,10 @@ const WeatherPage = ({ currentData, forecastData }) => {
       )} */}
       {currentData && (
         <div className="header">
+          <a href="http://localhost:3000/" className="arrowBack ">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </a>
+
           <p className="header-city">{currentData.name}</p>
           <div className="header-temperature">
             {Math.round(currentData.main.temp)}°C
