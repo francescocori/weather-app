@@ -71,8 +71,7 @@
   align-items: center;
 }
 
-/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-.button {
+.search-button {
   width: 8rem;
   height: 3rem;
   margin-top: 2rem;
@@ -87,7 +86,7 @@
   letter-spacing: 2px;
   font-weight: 100;
 }
-.button:hover {
+.search-button:hover {
   border: 2.5px solid #eef778;
   cursor: pointer;
   transform: translateY(-0.25em);

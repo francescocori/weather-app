@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./style.css";
 const HourlyForecastList = ({ forecastData }) => {
   const hourlyWeather = forecastData.hourlyForecast;
@@ -49,7 +49,6 @@ const HourlyForecastList = ({ forecastData }) => {
                 className="item-icon"
               />
               <div className="item-temp">{Math.round(hour.temp)}°</div>
-              {/* <div className="item-weather">{hour.weatherCondition}</div> */}
             </div>
           ))}
       </div>

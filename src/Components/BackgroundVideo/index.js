@@ -1,18 +1,21 @@
 import React from "react";
-import clearDay from "../../weather-animations/clearDay.mp4"; // goood
-import clearNight from "../../weather-animations/clearNight.mp4";
-import cloud from "../../weather-animations/cloud.mp4"; //goood
-import snow from "../../weather-animations/snow.mp4";
-import rain from "../../weather-animations/rain.mp4";
-import stormNight from "../../weather-animations/stormNight.mp4";
-import stormDay from "../../weather-animations/stormDay.mp4";
+import {
+  clearDay,
+  clearNight,
+  cloud,
+  snow,
+  stormDay,
+  stormNight,
+  rain,
+} from "../../weather-animations";
+
 const WeatherBackground = ({ currentData }) => {
   const setBackground = () => {
     let weather = currentData.weather[0].main;
-
+    let isDay = currentData.weather[0].icon.includes("d");
     switch (weather) {
       case "Clear":
-        return clearDay;
+        return isDay ? clearDay : clearNight;
       case "Clouds":
       case "Mist":
       case "Smoke":
@@ -27,7 +30,7 @@ const WeatherBackground = ({ currentData }) => {
         return rain;
 
       case "Thunderstorm":
-        return stormNight;
+        return isDay ? stormDay : stormNight;
 
       default:
         return cloud;

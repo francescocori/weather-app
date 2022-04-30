@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import data from "../../Data/cities.json";
+import data from "../../Data/citiesList.json";
 import TodayDate from "../../Components/TodayDate";
+import Footer from "../../Components/Footer";
 import "./style.css";
 const SearchPage = ({
   city,
@@ -14,26 +15,6 @@ const SearchPage = ({
   let navigate = useNavigate();
   const [error, setError] = useState(false);
   const [input, setInput] = useState("");
-
-  //show only matching options
-  // const getCitySuggestions = (input) => {
-  //   let matches = [];
-  //   if (input !== "") {
-  //     for (let i = 0; i < data.length && matches.length < 6; i++) {
-  //       if (data[i].name.toLowerCase().startsWith(input.toLowerCase())) {
-  //         matches.push({
-  //           id: data[i].id,
-  //           long: data[i].coord.lon,
-  //           lat: data[i].coord.lat,
-  //           name: data[i].name,
-  //           country: data[i].country,
-  //         });
-  //         setMatchingCities(matches);
-  //       }
-  //     }
-  //   }
-  //   return matches;
-  // };
 
   const getCitySuggestions = (input) => {
     let matches = [];
@@ -110,10 +91,11 @@ const SearchPage = ({
             {item.name}, <span>{item.country}</span>
           </div>
         ))}
-        <button className="button" type="button" onClick={handlSubmit}>
+        <button className="search-button" type="button" onClick={handlSubmit}>
           Enter
         </button>
       </form>
+      <Footer />
     </div>
   );
 };
