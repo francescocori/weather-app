@@ -5,11 +5,11 @@
   height: 3rem;
 }
 
-.rounded-social-buttons {
+.social-buttons-container {
   text-align: center;
 }
 
-.rounded-social-buttons .social-button {
+.social-buttons-container .social-button {
   display: inline-block;
   position: relative;
   cursor: pointer;

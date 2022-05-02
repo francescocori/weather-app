@@ -36,7 +36,9 @@ const HourlyForecastList = ({ forecastData }) => {
 
   return (
     <div className="hourly-weather-container">
-      <div>{hourlyWeather && <h2 className="title">Hourly weather</h2>}</div>
+      <div className="title-container">
+        {hourlyWeather && <h2 className="title">Hourly weather</h2>}
+      </div>
 
       <div className="horizontal-scroll">
         {hourlyWeather &&

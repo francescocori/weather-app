@@ -4,12 +4,12 @@ import "./style.css";
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="rounded-social-buttons">
+      <div className="social-buttons-container">
         <a className="social-button facebook" href="https://www.facebook.com/">
           <i className="fab fa-facebook-f"></i>
         </a>
         <a className="social-button twitter" href="https://www.twitter.com/">
-          <i class="fab fa-twitter"></i>
+          <i className="fab fa-twitter"></i>
         </a>
         <a
           className="social-button linkedin"
@@ -21,7 +21,7 @@ const Footer = () => {
           className="social-button github"
           href="https://github.com/francescocori"
         >
-          <i class="fab fa-github"></i>
+          <i className="fab fa-github"></i>
         </a>
         <a
           className="social-button instagram"

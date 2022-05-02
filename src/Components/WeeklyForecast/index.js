@@ -37,7 +37,10 @@ const WeeklyForecastList = ({ forecastData }) => {
 
   return (
     <div className="weekly-weather-container ">
-      {dailyWeather && <h2 className="title">Daily Forecast</h2>}
+      {/* {dailyWeather && <h2 className="title">Daily Forecast</h2>} */}
+      <div className="title-container">
+        {dailyWeather && <h2 className="title">Daily Forecast</h2>}
+      </div>
       {dailyWeather &&
         dailyWeather.map((day, index) => (
           <div className="weekday-weather" key={index}>

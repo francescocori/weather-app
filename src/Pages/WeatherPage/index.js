@@ -9,10 +9,11 @@ const WeatherPage = ({ currentData, forecastData }) => {
   return (
     <div className="weather-page">
       <TodayWeather currentData={currentData} />
+      <div className="forecast">
+        <HourlyForecast forecastData={forecastData} />
 
-      <HourlyForecast forecastData={forecastData} />
-
-      <WeeklyForecast forecastData={forecastData} />
+        <WeeklyForecast forecastData={forecastData} />
+      </div>
 
       <BackgroundVideo currentData={currentData} />
     </div>

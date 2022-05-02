@@ -37,13 +37,13 @@ const WeatherBackground = ({ currentData }) => {
     }
   };
   return (
-    <div>
+    <>
       {currentData && (
         <video className="bg-video" autoPlay loop muted>
           <source src={setBackground()} type="video/mp4" />
         </video>
       )}
-    </div>
+    </>
   );
 };
 
