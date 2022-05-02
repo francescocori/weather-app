@@ -1,51 +1,36 @@
 import React from "react";
 import "./style.css";
-import GitHub from "../../Icons/github.svg";
+
 const Footer = () => {
   return (
-    <div className="wrapper">
-      <i class="fa-brands fa-github"></i>
-      <div className="button">
-        <div className="icon">
+    <footer className="footer">
+      <div className="rounded-social-buttons">
+        <a className="social-button facebook" href="https://www.facebook.com/">
           <i className="fab fa-facebook-f"></i>
-        </div>
-        <a
-          className="removeHiperLinks"
-          href="https://www.facebook.com/WearThere-102306738950908"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>Facebook</span>
         </a>
-      </div>
-      <div className="button">
-        <div className="icon">
+        <a className="social-button twitter" href="https://www.twitter.com/">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          className="social-button linkedin"
+          href="https://www.linkedin.com/in/francesco-coriolano/"
+        >
+          <i className="fab fa-linkedin"></i>
+        </a>
+        <a
+          className="social-button github"
+          href="https://github.com/francescocori"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          className="social-button instagram"
+          href="https://www.instagram.com/"
+        >
           <i className="fab fa-instagram"></i>
-        </div>
-        <a
-          className="removeHiperLinks"
-          href="https://www.instagram.com/wearthere_/?fbclid=IwAR3G3T4Xv970_HeR1Asbppnvu47JHSVM0qcRY9bWSPuEqpiWNzOfhoCLa2U"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>Instagram</span>
         </a>
       </div>
-      <div className="button">
-        <div className="icon">
-          <i className="fab fa-github"></i>
-        </div>
-        <a
-          className="removeHiperLinks"
-          href="https://github.com/WildCodeSchool/2021-09-lisbon-webdev-project2-group3"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>GitHub</span>
-        </a>
-      </div>
-    </div>
+    </footer>
   );
 };
-
 export default Footer;
