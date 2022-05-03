@@ -84,7 +84,7 @@ const SearchPage = ({
             className="list-item"
             onClick={() => handleClick(item.name)}
             value={item.name}
-            key={item.id}
+            key={index}
           >
             {item.name}, <span>{item.country}</span>
           </div>
