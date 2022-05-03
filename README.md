@@ -15,5 +15,7 @@ The background video will changed based on the weather condition, the app is mob
 
 
 
-https://user-images.githubusercontent.com/77288139/166461831-c0edc034-9634-4dfc-9d81-1afa40b1d19f.mp4
+
+
+https://user-images.githubusercontent.com/77288139/166462999-cd4a4370-b9b5-46ca-86a5-723b10069bcc.mp4
 
