@@ -16,27 +16,26 @@ const SearchPage = ({
   const [error, setError] = useState(false);
   const [input, setInput] = useState("");
 
-  const getCitySuggestions = (input) => {
-    let matches = [];
-    if (input !== "") {
-      for (let i = 0; i < data.length && matches.length < 6; i++) {
-        if (data[i].name.toLowerCase().startsWith(input.toLowerCase())) {
-          matches.push({
-            long: data[i].lng,
-            lat: data[i].lat,
-            name: data[i].name,
-            country: data[i].country,
-          });
-          setMatchingCities(matches);
+  useEffect(() => {
+    const getCitySuggestions = (input) => {
+      let matches = [];
+      if (input !== "") {
+        for (let i = 0; i < data.length && matches.length < 6; i++) {
+          if (data[i].name.toLowerCase().startsWith(input.toLowerCase())) {
+            matches.push({
+              long: data[i].lng,
+              lat: data[i].lat,
+              name: data[i].name,
+              country: data[i].country,
+            });
+            setMatchingCities(matches);
+          }
         }
       }
-    }
-    return matches;
-  };
-
-  useEffect(() => {
+      return matches;
+    };
     getCitySuggestions(input);
-  }, [input]);
+  }, [input, setMatchingCities]);
 
   const handleClick = (cityName) => {
     setCity((prev) => cityName);
