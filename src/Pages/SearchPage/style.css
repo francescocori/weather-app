@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   text-align: center;
   color: #eef778;
   background-color: #4b7be5;
@@ -12,7 +12,7 @@
 }
 .searchPage-header {
   font-family: "Inter";
-  font-weight: 200;
+  font-weight: 300;
   font-size: 2rem;
   line-height: 2.5;
   margin-bottom: 4rem;
@@ -21,6 +21,7 @@
   margin-top: -0.6rem;
   margin-bottom: 4.5rem;
   font-size: 14px !important;
+  font-weight: 300 !important;
 }
 
 .input-container {
