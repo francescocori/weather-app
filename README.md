@@ -10,3 +10,7 @@ The background video will changed based on the weather condition, the app is mob
 4. Create a .env file in the root directory, and put your api key inside this file. The .env file should have the following structure: <br/>
    `REACT_APP_API_KEY=your_api_key`
 5. Run the command `npm start` to see the app running.
+
+
+https://user-images.githubusercontent.com/77288139/166459552-14882572-d2fe-49da-a804-ec5ce4f0d4ca.mp4
+
