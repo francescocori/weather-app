@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
 import "./App.css";
+import axios from "axios";
 import SearchPage from "./Pages/SearchPage";
 import WeatherPage from "./Pages/WeatherPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 const App = () => {
   const apiKey = process.env.REACT_APP_API_KEY;
   const [city, setCity] = useState("");
@@ -80,10 +80,14 @@ const App = () => {
         <Route
           path="/weather"
           element={
-            <WeatherPage
-              currentData={currentData}
-              forecastData={forecastData}
-            />
+            currentData ? (
+              <WeatherPage
+                currentData={currentData}
+                forecastData={forecastData}
+              />
+            ) : (
+              <div id="loading"></div>
+            )
           }
         />
       </Routes>

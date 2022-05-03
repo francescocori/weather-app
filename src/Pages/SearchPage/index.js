@@ -34,12 +34,10 @@ const SearchPage = ({
     return matches;
   };
 
-  //call function every time user type
   useEffect(() => {
     getCitySuggestions(input);
   }, [input]);
 
-  // handle when user click on city
   const handleClick = (cityName) => {
     setCity((prev) => cityName);
     setInput((prev) => cityName);

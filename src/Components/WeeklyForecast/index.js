@@ -37,7 +37,6 @@ const WeeklyForecastList = ({ forecastData }) => {
 
   return (
     <div className="weekly-weather-container ">
-      {/* {dailyWeather && <h2 className="title">Daily Forecast</h2>} */}
       <div className="title-container">
         {dailyWeather && <h2 className="title">Daily Forecast</h2>}
       </div>
