@@ -63,7 +63,7 @@
   outline: none;
   transition: all 0.25s;
   border: 2px solid #eef778;
-
+  cursor: pointer;
   background-color: #eef778;
   color: #4b7be5;
   font-size: 1rem;
@@ -73,7 +73,7 @@
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-.search-button:hover:active {
+button:hover {
   border: 2.5px solid #eef778;
 
   cursor: pointer;
@@ -86,7 +86,8 @@
   margin-left: none;
 }
 .list-item:hover {
-  font-weight: 300;
+  font-weight: 500;
+  cursor: pointer;
 }
 .error-message {
   display: flex;
