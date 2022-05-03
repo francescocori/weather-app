@@ -5,7 +5,7 @@ The background video will changed based on the weather condition, the app is mob
 
 ## Setup
 1. Clone the master branch of this repository.
-2. Run the command 'nom install' in your terminal. This will allow you install in your project folder all the packages used in this project.
+2. Run the command 'npm install' in your terminal. This will allow you install in your project folder all the packages used in this project.
 3. Access [OpenWeather's API](https://openweathermap.org) and create and account to get an API key.
 4. Create a .env file in the root directory, and put your api key inside this file. The .env file should have the following structure: <br/>
    `REACT_APP_API_KEY=your_api_key`
