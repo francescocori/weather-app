@@ -12,5 +12,8 @@ The background video will changed based on the weather condition, the app is mob
 5. Run the command `npm start` to see the app running.
 
 
-https://user-images.githubusercontent.com/77288139/166459552-14882572-d2fe-49da-a804-ec5ce4f0d4ca.mp4
+
+
+
+https://user-images.githubusercontent.com/77288139/166461831-c0edc034-9634-4dfc-9d81-1afa40b1d19f.mp4
 
