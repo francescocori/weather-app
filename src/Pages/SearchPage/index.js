@@ -20,7 +20,7 @@ const SearchPage = ({
     const getCitySuggestions = (input) => {
       let matches = [];
       if (input !== "") {
-        for (let i = 0; i < data.length && matches.length < 6; i++) {
+        for (let i = 0; i < data.length && matches.length < 5; i++) {
           if (data[i].name.toLowerCase().startsWith(input.toLowerCase())) {
             matches.push({
               long: data[i].lng,
