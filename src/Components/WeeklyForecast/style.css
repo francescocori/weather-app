@@ -39,4 +39,9 @@
     width: 6rem;
     font-size: 1.5rem;
   }
+
+  .weekday-weather {
+    justify-content: space-around;
+    font-size: 1.5rem;
+  }
 }
