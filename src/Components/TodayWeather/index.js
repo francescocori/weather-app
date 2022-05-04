@@ -5,7 +5,7 @@ const TodayWeather = ({ currentData }) => {
     <div>
       {currentData && (
         <div className="header">
-          <a href="https://fra-weather-app.netlify.app" className="arrowBack ">
+          <a href="http://localhost:3000/" className="arrowBack ">
             <span className="material-symbols-outlined">arrow_back</span>
           </a>
           <p className="header-city">{currentData.name}</p>
