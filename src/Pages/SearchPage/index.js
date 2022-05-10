@@ -4,6 +4,8 @@ import data from "../../Data/citiesList.json";
 import TodayDate from "../../Components/TodayDate";
 import Footer from "../../Components/Footer";
 import "./style.css";
+
+//fokfnodnfodndff
 const SearchPage = ({
   city,
   setCity,
