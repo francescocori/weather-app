@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100%;
+  min-height: 100vh;
   text-align: center;
   color: #eef778;
   background: linear-gradient(90deg, #1d2d50 1.18%, #1e5f74 100%);
