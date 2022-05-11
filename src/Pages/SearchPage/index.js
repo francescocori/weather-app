@@ -67,7 +67,7 @@ const SearchPage = ({
       </h1>
 
       <TodayDate />
-      <form>
+      <form className="form">
         <div className="input-container">
           <input
             type="text"

@@ -3,11 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100%;
   text-align: center;
   color: #eef778;
   background: linear-gradient(90deg, #1d2d50 1.18%, #1e5f74 100%);
   position: relative;
+  /* padding-bottom: 3rem; */
+}
+
+.form {
   padding-bottom: 3rem;
 }
 .searchPage-header {
@@ -100,4 +104,10 @@ button:hover {
   border: 1px solid #e47377;
   border-radius: 0.6rem;
   margin-top: 0.6rem;
+}
+
+@media (min-width: 768px) {
+  .searchPage-body {
+    min-height: 100vh;
+  }
 }
