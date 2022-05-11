@@ -106,8 +106,8 @@ button:hover {
   margin-top: 0.6rem;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .searchPage-body {
     min-height: 100vh;
   }
-}
+} */
