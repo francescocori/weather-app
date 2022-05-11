@@ -1,4 +1,4 @@
-# WEATHER APP 🌤  🌦  ☀️  ⛈  🌧  ⚡️
+# WEATHER APP 🌤    ⛅️    🌧  ⚡️
 
 This app created with ReactJs allow you to check the weather condition in any city of the world, as well the hourly forecast and daily forecast.
 The background video will changed based on the weather condition, the app is mobile and desktop friendly. I hope you enjoy! 
