@@ -8,13 +8,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   font-family: "Inter";
   font-size: 1rem;
   letter-spacing: 2px;
   font-weight: 600;
   color: white;
-  padding: 0.6rem;
+  padding-top: 1rem;
 }
 
 .weekly-icon {
@@ -25,6 +25,7 @@
 
 .weekday {
   width: 5rem;
+  display: flex;
 }
 
 @media (min-width: 768px) {
