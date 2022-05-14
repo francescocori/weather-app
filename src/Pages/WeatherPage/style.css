@@ -1,10 +1,11 @@
 .weather-page {
   text-align: center;
   width: 100vw;
-  /* min-height: 100vh; */
+  max-height: 100vh;
   font-family: "Inter";
   background-repeat: no-repeat;
   color: white;
+  /* position: relative; */
 }
 
 .bg-video {
@@ -12,7 +13,8 @@
   width: 100%;
   left: 50%;
   top: 50%;
-  min-height: 100vh;
+  bottom: 50%;
+  height: 100vh;
   object-fit: cover;
   transform: translate(-50%, -50%);
   z-index: -1;
