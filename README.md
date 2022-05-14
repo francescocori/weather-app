@@ -1,8 +1,9 @@
 # WEATHER APP ☀️    ⛅️    🌧  ⚡️
 
-This app created with ReactJs allow you to check the weather condition in any city of the world, as well the hourly forecast and daily forecast.
+This app created with ReactJS allows you to check the weather condition in any city of the world, as well the hourly forecast and daily forecast.
 The background video will changed based on the weather condition, the app is mobile and desktop friendly. I hope you enjoy! 
 
+### Click [here](https://fra-weather-app.netlify.app) to see the app running.
 
 ## Setup
 1. Clone the master branch of this repository.
@@ -18,5 +19,12 @@ The background video will changed based on the weather condition, the app is mob
 
 
 
-https://user-images.githubusercontent.com/77288139/166462999-cd4a4370-b9b5-46ca-86a5-723b10069bcc.mp4
+
+
+https://user-images.githubusercontent.com/77288139/168008963-35514e27-c1b5-4f3a-8c73-6ea05a1b80bd.mov
+
+
+
+
+
 
