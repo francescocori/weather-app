@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import React from "react";
 import "./style.css";
 const HourlyForecastList = ({ forecastData }) => {
@@ -43,7 +44,7 @@ const HourlyForecastList = ({ forecastData }) => {
       <div className="horizontal-scroll">
         {hourlyWeather &&
           hourlyWeather.map((hour, index) => (
-            <div className="horizontal-scroll-item " key={index}>
+            <div className="horizontal-scroll-item " key={nanoid()}>
               <div className="item-time">{hoursForecast(index)}</div>
               <img
                 src={`http://openweathermap.org/img/wn/${hour.weatherIcon}@2x.png`}

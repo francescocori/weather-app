@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import data from "../../Data/citiesList.json";
 import TodayDate from "../../Components/TodayDate";
 import Footer from "../../Components/Footer";
+import { nanoid } from "nanoid";
 import "./style.css";
 
 //fokfnodnfodndff
@@ -80,14 +81,14 @@ const SearchPage = ({
           />
         </div>
 
-        {matchingCities.map((item, index) => (
+        {matchingCities.map((city) => (
           <div
             className="list-item"
-            onClick={() => handleClick(item.name)}
-            value={item.name}
-            key={index}
+            onClick={() => handleClick(city.name)}
+            value={city.name}
+            key={nanoid()}
           >
-            {item.name}, <span>{item.country}</span>
+            {city.name}, <span>{city.country}</span>
           </div>
         ))}
         <button className="search-button" type="button" onClick={handlSubmit}>

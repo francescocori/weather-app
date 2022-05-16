@@ -4,6 +4,7 @@ import axios from "axios";
 import SearchPage from "./Pages/SearchPage";
 import WeatherPage from "./Pages/WeatherPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { nanoid } from "nanoid";
 const App = () => {
   const apiKey = process.env.REACT_APP_API_KEY;
   const [city, setCity] = useState("");
@@ -35,14 +36,14 @@ const App = () => {
         const utcOffset = res.data.timezone_offset;
         const hourly = res.data.hourly;
         const daily = res.data.daily;
-        let hourlyReduced = hourly.map((hour, index) => ({
-          id: index,
+        let hourlyReduced = hourly.map((hour) => ({
+          id: nanoid(),
           temp: hour.temp,
           weatherCondition: hour.weather[0].main,
           weatherIcon: hour.weather[0].icon,
         }));
-        const dailyReduced = daily.map((day, index) => ({
-          id: index,
+        const dailyReduced = daily.map((day) => ({
+          id: nanoid(),
           minTemp: day.temp.min,
           maxTemp: day.temp.max,
           weatherCondition: day.weather[0].main,

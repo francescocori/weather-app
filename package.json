@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "eslint-plugin-react-hooks": "^4.6.0-next-ce1386028-20220428",
+    "nanoid": "^3.3.4",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "react-search-autocomplete": "^6.1.1",

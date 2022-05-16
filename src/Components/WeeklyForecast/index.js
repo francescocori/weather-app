@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import React from "react";
 import "./style.css";
 const WeeklyForecastList = ({ forecastData }) => {
@@ -42,7 +43,7 @@ const WeeklyForecastList = ({ forecastData }) => {
       </div>
       {dailyWeather &&
         dailyWeather.map((day, index) => (
-          <div className="weekday-weather" key={index}>
+          <div className="weekday-weather" key={nanoid()}>
             <div className="weekday">{getDays(index)}</div>
             <img
               src={`http://openweathermap.org/img/wn/${day.weatherIcon}@2x.png`}
